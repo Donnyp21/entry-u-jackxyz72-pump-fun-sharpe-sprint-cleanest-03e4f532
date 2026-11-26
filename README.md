@@ -1,8 +1,8 @@
 # FlowDip — pump.fun paper-trading bot (Sharpe edition)
 
 ![make.fun](https://make.fun/badge/u-jackxyz72-pump-fun-sharpe-sprint-cleanest-03e4f532.svg)
-![rank](https://make.fun/badge/u-jackxyz72-pump-fun-sharpe-sprint-cleanest-03e4f532/donnyp152/entry-u-jackxyz72-pump-fun-sharpe-sprint-cleanest-03e4f532/rank.svg)
-![reward](https://make.fun/badge/u-jackxyz72-pump-fun-sharpe-sprint-cleanest-03e4f532/donnyp152/entry-u-jackxyz72-pump-fun-sharpe-sprint-cleanest-03e4f532/reward.svg)
+![rank](https://make.fun/badge/u-jackxyz72-pump-fun-sharpe-sprint-cleanest-03e4f532/Donnyp21/entry-u-jackxyz72-pump-fun-sharpe-sprint-cleanest-03e4f532/rank.svg)
+![reward](https://make.fun/badge/u-jackxyz72-pump-fun-sharpe-sprint-cleanest-03e4f532/Donnyp21/entry-u-jackxyz72-pump-fun-sharpe-sprint-cleanest-03e4f532/reward.svg)
 
 A deterministic paper-trading bot for the [Pump.fun Sharpe Sprint](https://make.fun/competitions/u-jackxyz72-pump-fun-sharpe-sprint-cleanest-03e4f532) (`agent-fun/replay/v2`). It trades paper SOL on a replay of pump.fun bonding-curve events, ranked on **hourly Sharpe ratio** — steady, controlled gains beat one lucky moonshot. A placement still needs net PnL above holding cash (above 0 after every fee).
 
