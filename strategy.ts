@@ -1,21 +1,23 @@
 // FlowDip — a deterministic pump.fun paper-trading bot (agent-fun/replay/v2).
 //
-// Written from scratch for this competition. Two entry modes, both gated on
-// real buying flow rather than price alone:
+// Written from scratch for this competition. Three entry modes were built and
+// graded on the dev window; only the SNIPER ships enabled (see DEFAULT_PARAMS):
 //
-//   DIP  — a strong curve (real SOL >= minRealSol) that has fallen ddMin..ddMax
-//          from its recent high, with buyers stepping back in (most of the last
-//          few trades are buys, the latest trade is a buy, net SOL flow >= 0).
-//          Buys the dip in tranches while the price stays near the entry.
-//   FLOW — a young curve whose price is already up momUp from its first print,
-//          backed by at least minBuyers distinct wallets and positive net inflow
-//          over the recent tape: follow-on buying, not a single-wallet pump.
-//          Small stake; the dip book is the main earner.
+//   SNIPER (live) — buy within a coin's first two trades, when real SOL is
+//          already >= 5, at least 2 of the first trades are buys, and the
+//          creator has not sold. Flip fast: TP +10%, SL -12%, 10-slot hold.
+//   DIP (disabled) — a strong curve that has fallen 30-45% from its recent
+//          high, with buyers stepping back in. Lost -2.56 SOL on dev: the
+//          bounce comes only after a further -60% median drawdown.
+//   FLOW (disabled) — a young curve up momUp from its first print, backed by
+//          distinct buyers and positive net inflow. Lost -5.02 SOL on dev:
+//          buying momentum through 2-slot latency buys the top.
 //
 // Exits are value-based (liquidation value vs cost, curve fees deducted):
 // take-profit, stop-loss, a trailing stop once the position is up trailArm,
 // a fade exit on strong net outflow while the position is not well up, and a
-// max-hold time limit. Positions are sold whole.
+// max-hold time limit. Positions are sold whole. Sniper positions use their
+// own TP/SL/hold and never add or trail.
 //
 // Guardrail pacing: the run must clear the competition's minimum bar (a
 // >= 0.01 SOL round trip on >= 20 coins). When the bot's own fills or coins
