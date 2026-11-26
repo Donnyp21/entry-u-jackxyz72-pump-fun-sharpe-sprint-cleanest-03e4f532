@@ -65,6 +65,17 @@ iteration only, so the grader's two executions emit identical action logs.
 - Beats every house baseline on the same window (equal-weight -0.019 SOL,
   pilot sniper -0.468, pilot reversion -3.887, pilot momentum -9.460).
 
+**Stress test (honest caveat, run on the sibling PnL entry with the same
+strategy core):** `grade-local --stress` over 20 resampled dev windows
+gives median net PnL -0.0139 SOL (p10 -0.203, p90 +0.088), 12 of 20 copies
+losing money, with warnings that the dev score sits above 90% of the
+rebuilt copies and that half or more copies lost money. Concentration: the
+top 3 coins carry 57.5% of gross gains; net PnL without them is -0.10 SOL.
+The +0.11 SOL dev score is likely a favourable draw — expected PnL on a
+fresh window is around zero, which matters here because a prize still needs
+PnL > 0. The Sharpe edge is real against the house baselines but thin, and
+on the 6-hour final window it is computed over just 6 hourly returns.
+
 ## Tuning notes
 
 Parameter sweeps used the kit's faithful local replay port over 4 failed-tx
